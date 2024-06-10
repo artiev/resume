@@ -1,0 +1,146 @@
+
+\documentclass[10pt,a4paper]{moderncv}
+\moderncvtheme[blue]{banking}
+
+\usepackage[T1]{fontenc}
+\usepackage{inputenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage{parskip}
+\usepackage[sfdefault, thin]{roboto}
+\usepackage{tabularx}
+
+\renewcommand*{\labelitemi}{-}
+\renewcommand{\baselinestretch}{1.25} 
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+\newcommand*{\experienceentry}[5][5mm]{
+    \subsection{#2}
+    \begin{tabularx}{\textwidth}{LR}
+        {\itshape #3} & {\itshape #4, #5}
+    \end{tabularx}
+    \par\addvspace{#1}
+}
+
+\newcommand*{\educationentry}[4][2mm]{
+    {#3, #4}\\
+    {\itshape #2}
+    \par\addvspace{#1}
+}
+
+\newcommand*{\scoreentry}[3][2.5mm]{
+    {\bfseries #2} \\
+    {\itshape #3}
+    \par\addvspace{#1}
+}
+
+\firstname{Arthur}
+\familyname{Van de Wiele}
+\address{***REMOVED***, ***REMOVED***, ***REMOVED***}{}
+
+\begin{document}
+
+\maketitle
+
+\begin{tabularx}{\textwidth}{C C C}
+    \emailsymbol\enspace \emaillink{***REMOVED***} 
+    & \mobilephonesymbol\enspace ***REMOVED*** 
+    & \faLinkedin\enspace \href{https://www.linkedin.com/in/arthur-van-de-wiele/}{Linkedin} \faGithubSquare\enspace \href{https://www.linkedin.com/in/arthur-van-de-wiele/}{GitHub}
+\end{tabularx}
+
+\section{About}
+
+Dedicated and hands-on engineering lead, with 13 years of practical experience in hardware product development, including firmware, electronics and mechanical design taking early concepts to manufacturing at scale. Leading cross-functional agile teams (up to 13 engineers) with a strong focus on self-reliance, dependability and quality. I believe building an audacious engineering team and product backlog is the key to bringing research, design as well as development projects to a fulfilling completion. The values I share with my teams are thriving for open communication, building trust, honouring our commitments, understanding the what and why before defining the how to ensure we are doing the right things the right way.
+    
+\section{Expertise}
+
+\begin{tabularx}{\textwidth}{>{\bfseries}l@{\hskip 3.5mm}L}
+    Leadership & Mentoring, Personal Development, Budgeting, Performance Evaluation, Recruiting\\
+    Product Management & Design, Vision, Stakeholder Management, Forecasting, Market Study, Project Management, Risk Analysis, Roadmapping, Requirement Engineering\\
+    Industrial IoT Design & Mechanics, Electronics, Firmware, QA, DFM, Supplier Management\\
+    Backend Interfaces & AWS IoT Core, FleetHub, MQTT\\
+    Connectivity & 4G, 5G, Bluetooth, Bluetooth LE, LoRa\\
+    Languages & French (Native), English (Business), German (Casual)
+\end{tabularx}
+
+\section{Career}
+
+\experienceentry{Konux - Railway Monitoring \& Predictive Maintenance}{Hardware Engineering Manager}{Aug. 2019 - Present}{Munich, Germany}
+
+    \begin{tabularx}{\textwidth}{>{\bfseries}l@{\hskip 3.5mm}L}
+        Summary & Leading a team of 11 professional engineers including all levels of seniority.\par Hardware Product Vision and Portfolio with 3+ independent products.\par Internal and External Customer Management.\par Supporting P\&E and Company Growth from $\sim 40$ to $\sim 120$ employees despite Covid\\
+        Technology Stacks & NXP, Nordic Semiconductors, Analog Devices, Bare metal, RTOS, GNSS, 3G/4G/5G, BLE, Test Automation, Python, Jenkins, TestRail, AWS IoT Core, S3, Fleethub, Cloudwatch, Aluminium, (Stainless) Steel, Glass-fibre reinforced plastics, Lithium Battery\\
+        Standards & ISO 9001, ISO27001, European EMC \& RED, EN 50125, UN 38.3\\
+        Markets & Europe, Asia-Pacific\\
+    \end{tabularx}
+
+    \vspace{5mm}
+
+    My role includes product design, customer project management, and I have had the pleasure to build an agile cross-functional engineering team almost form scratch, now counting 11 dedicated professionals, coordinating research and development activities in mechanical and electronics designs as well as embedded software and cloud development. Together, we built and maintain multiple industrial IoT devices over the course of 5 years, pushing the boundaries of what our company and customers can achieve. I am thrilled to be able to mentor each individual contributor, both on technical aspects as well as personal growth. The added intricacies of owning the backend interfaces and fleet management landscape ensures one team is owning the complete hardware and backend architecture.
+
+\vspace{5mm}
+
+\experienceentry{Proglove - Industrial wearables}{Hardware Product Development Team Lead}{Oct. 2017 - Jul. 2019}{Munich, Germany}
+
+    I had the pleasure to lead a team of electronics, mechanics and embedded software engineers with the goal to develop a strong cross functional product engineering team. From concept and design, to execution and validation, to delivery to our production partners, the scrum team is responsible for all the aspects of the product development life cycle. Growing the team evenly from 5 to 13 engineers over the course of 18 months enabled us, in March 2019, to release the product very successfully in Europe and North America while still working on other projects in parallel.
+
+
+    \begin{itemize}
+        \item Cross functional scrum team lead
+        \item Agile in an OKR environment
+        \item Business focused engineering goal
+        \item Fast paced \& growing environment
+        \item Customer-centric design with Design Thinking approach
+        \item Regulatory/Certification for EU and North America (CE, UL, FCC)
+        \item Design for manufacturing (EE/ME BOM, FMEA, supply chain) 
+        \item Strong emphasis on quality delivery with a strict timeline
+    \end{itemize}
+
+\vspace{5mm}
+
+\experienceentry{Intel Corporation - Modems}{Pre-silicon Validation \& Verification Engineer}{Nov. 2013 - May 2017}{Munich, Germany}
+
+    In 2015, we successfully established a dedicated department responsible for the complex tooling ecosystem enabling the validation and verification of RF engines and RF modems (SMARTi \& XMM Families) in EU and US.
+
+    \vspace{2.0mm}
+
+    \begin{itemize}
+        \item SW/HW Tools for Pre- \& Post-Silicon Validation (automation)
+        \item Infrastructure \& Methodology (White/Black Box Testing) 
+        \item Agile Project and Feature Team Management
+        \item Stakeholder Management, Scheduling \& Resource Allocation 
+        \item Software release management
+        \item SW Architecture \& Patterns
+        \item Hands on work in Python, Matlab, LabVIEW
+    \end{itemize}
+
+    \vspace{2.0mm}
+
+    In 2013, I enlisted the help of a scrum master, in order to bring multiple software and hardware engineering teams together to unify the tools developed in-house for silicon validation and hardware-software integration. The teams were scattered across Europe and the United States and were organised in feature teams. 
+
+\noindent
+\begin{minipage}[t]{0.60\textwidth}
+    
+    \section{Degrees}
+
+    \educationentry{Master of Science - Microelectronics \& Telecommunications}{École d'Ingénieurs Chimie, Physique et d'Électronique de Lyon}{France}
+    \par
+
+    \vspace{3.0mm}
+
+    \educationentry{Bachelor of Science - Electronics \& Telecommunications}{École d'Ingénieurs Chimie, Physique et d'Électronique de Lyon}{France}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+
+    \section{Extracurricular}
+
+    Ultralight Outdoor Equipment Design - See abcpacks.com
+    \\
+    Hand-tool Woodworking \& Furniture Making
+
+\end{minipage}
+\end{document}
