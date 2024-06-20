@@ -1,0 +1,226 @@
+\documentclass[10pt,a4paper]{moderncv}
+\moderncvtheme{banking}
+\moderncvcolor{blue}
+
+\usepackage[T1]{fontenc}
+\usepackage{inputenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage[sfdefault, light]{roboto}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{parskip}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{xpatch}
+
+\xpatchcmd\makehead
+   {\centering}
+   {}
+   {}{}
+
+\xpatchcmd\makehead
+   {\setlength{\makeheaddetailswidth}{0.8\textwidth}}%
+   {\setlength{\makeheaddetailswidth}{\textwidth}}
+   {}{}
+
+\xpatchcmd\makehead
+   {{\titlestyle{~|~\@title}}}
+   {{\titlestyle{~\\~\@title}}}
+   {}{}
+
+
+\renewcommand*{\labelitemi}{-}
+\renewcommand{\baselinestretch}{1.25}
+
+\renewcommand*{\namefont}{\huge\scshape}
+\renewcommand*{\titlefont}{\large\mdseries}
+\renewcommand*{\addressfont}{\normalsize\mdseries}
+\renewcommand*{\quotefont}{\large\slshape}
+
+\renewcommand*{\namestyle}[1]{{\namefont\textcolor{color1}{#1}}}
+\renewcommand*{\titlestyle}[1]{{\titlefont\textcolor{color2!85}{#1}}}
+\renewcommand*{\addressstyle}[1]{{\addressfont\textcolor{color2}{#1}}}
+\renewcommand*{\quotestyle}[1]{{\quotefont\textcolor{color1}{#1}}}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+\newcommand*{\experienceentry}[5]{
+    \subsection{#1 $\cdot$ #2}
+    \addvspace{-0.5em}
+    {\color{color2}
+    \begin{tabularx}{\textwidth}{LR}
+        {\itshape #3} & {\itshape #4, #5}
+    \end{tabularx}}
+    \par\addvspace{1em}
+    }
+
+\newcommand*{\educationentry}[3]{
+    {#2, #3}\\
+    {\itshape #1}
+    \par\addvspace{1em}
+    }
+
+\newcommand{\crulefill}{
+    \leavevmode\leaders\hrule height 0.7ex depth\dimexpr 0.5pt-0.7ex\hfill\kern 0pt
+    }
+
+\titleformat{\section}  % which section command to format
+  {\fontsize{1.5em}{2em}\scshape\mdseries} % format for whole line
+  {\thesection} % how to show number
+  {1em} % space between number and text
+  {\color{color1}} % formatting for just the text
+  [\color{color1}\hrule\vspace{0.2em}] % formatting for after the text
+
+\titleformat{\subsection}  % which section command to format
+  {\fontsize{1.2em}{1em}\scshape} % format for whole line
+  {\S\thesubsection} % how to show number
+  {2em} % space between number and text
+  {\color{color1}} % formatting for just the text
+  [\vspace{-0.5em}] % formatting for after the text
+
+\firstname{Arthur}
+\familyname{Van de Wiele}
+\address{***REMOVED***}{***REMOVED***}{***REMOVED***}
+\title{Industrial IoT Engineering \& Project Lead}
+\photo[75pt][0.5em]{me}
+
+\begin{document}
+\begin{minipage}[t]{0.75\textwidth}
+    \vspace{1em}
+    {\color{color1}\Huge\scshape Arthur Van de Wiele}
+    \vspace{0.5em}
+    {\par\color{color2}\Large Industrial IoT Engineering \& Project Lead}
+\end{minipage}
+\begin{minipage}[t]{0.25\textwidth}
+    \emailsymbol\hspace{1em} \emaillink{***REMOVED***}\\
+    \mobilephonesymbol\hspace{1em }\tellink[***REMOVED***]{***REMOVED***}\\
+    \faLinkedin\hspace{1em} \href{https://www.linkedin.com/in/arthur-van-de-wiele/}{Linkedin}\\
+    \faGithubSquare\hspace{1em} \href{https://www.linkedin.com/in/arthur-van-de-wiele/}{GitHub}
+\end{minipage}
+
+\vspace{1em}
+{\par\color{color2}***REMOVED***}
+
+\section{About}
+
+\begin{wrapfigure}{R}{3cm}
+    \includegraphics[width=\linewidth]{me}
+\end{wrapfigure}
+
+Dedicated and hands-on engineering \& project lead, with 13 years of practical experience in hardware and IIot product development, including firmware, QA, electronics and mechanical design taking early concepts to manufacturing at scale. Leading cross-functional agile teams (up to 13 engineers) with a strong focus on self-reliance, dependability and quality. I believe building an audacious engineering team and product backlog is the key to bringing research, design as well as development projects to a fulfilling completion. The values I share with my teams are thriving for open communication, building trust, honouring our commitments, understanding the what and why before defining the how to ensure we are doing the right things the right way, and embracing challenges for what they can teach us.
+    
+\section{Strengths}
+
+\begin{tabularx}{\textwidth}{>{\scshape}l@{\hskip 3.5mm}L}
+    Leadership & Mentoring, Recruiting, Budgeting, Performance Evaluation, Personal Development\\
+    Product Management & Vision, Design, Stakeholder Management, Forecasting, Market Study, Project Management, Risk Analysis, Roadmapping, Requirement Engineering, Resource Allocation, Agile, Scrum\\
+    Industrial IoT Design & Mechanics, Electronics, Firmware, QA, DFM, Supplier Management\\
+    Backend Interfaces & AWS IoT Core, FleetHub, MQTT, Cloudwatch,  Lambdas\\
+    Connectivity & 4G, 5G, Bluetooth, Bluetooth LE, LoRa\\
+    Languages & French (Native), English (Business), German (Casual), Spanish (Basic)
+\end{tabularx}
+
+\section{Career}
+
+\experienceentry{Konux}{Railway Monitoring \& Predictive Maintenance}{Hardware Engineering Project \& Team Lead}{Aug. 2019 - Present}{Munich, Germany}
+
+    \begin{tabularx}{\textwidth}{>{\scshape}l@{\hskip 3.5mm}L}
+        Summary & Hiring \& Leading an Agile team of 11 professional engineers (all levels of seniority).
+        \par Hardware Product Vision, Portfolio \& Backlog for 4 independent products
+        \par Driving Product Acceptance and Technical reviews directly with Customers.
+        \par Managing external development partners (Zühlke Engineering GmbH), suppliers, and manufacturing partners (Zollner AG).
+        \par Supporting Company Growth from $\sim 40$ to $\sim 120$ employees despite Covid.\\
+        Technology Stacks & NXP, Nordic Semiconductors, Analog Devices, Bare metal, Zephyr RTOS, GNSS, 3G/4G/5G, BLE, Test Automation, Python, Jenkins, TestRail, AWS IoT Core, S3, Fleethub, Cloudwatch, Lithium Battery\\
+        Materials &  Aluminium, (Stainless) Steel, Glass-fibre reinforced Plastics, PE, HDPR, Acrylic\\
+        Standards & ISO 9001, European EMC \& RED, EN 50125, UN 38.3, RoHS\\
+        Markets & Europe, North America, Asia-Pacific\\
+    \end{tabularx}
+
+    \vspace{1.5em}
+
+    I have the pleasure to lead an agile team of eleven exceptional electronics, mechanics, embedded software and QA engineers as well as fullstack and backend developers. Together, we built a strong and efficient cross-functional product engineering team and take ownership for the entire lifecycle of our hardware portfolio and the backend interfaces they rely on. I provide the team with a hardware and software vision and roadmap (1-2 years ahead) as well as extensive product backlogs. Then, I accompany them through concept, design, prototyping, execution and validation, until the final deliveries to our production partners. At the company level, I represent our hardware engineering efforts and ensure alignments with our Product, Sales and Customer Success, as well as System Operations teams. I am thrilled to be able to mentor each individual contributor, both on technical aspects as well as personal growth.
+
+\vspace{0.75em}
+
+\experienceentry{Proglove}{Industrial wearables}{Hardware Engineering Project \& Team Lead}{Oct. 2017 - Jul. 2019}{Munich, Germany}
+
+    \begin{tabularx}{\textwidth}{>{\scshape}l@{\hskip 3.5mm}L}
+        Summary & Hiring \& Leading a Scrum team of 13 professional engineers (all levels of seniority).
+        \par Focus on one Wearable Product development with critical deadlines.
+        \par Internal and External Customer Management. 
+        \par Introduce OKR methodology.
+        \par Growth from Start-up to Successful Scale-up\\
+        Technology Stacks & Nordic Semiconductors, Zephyr RTOS, BLE, Sub-GHz Radio, USB, Test Automation, Python, Lithium Battery\\
+        Materials & Plastics\\
+        Standards & European EMC \& RED, FCC (ID: : 2AOJL-MARK-2), IC (ID: 23450-MARK2), UL 62368, RoHS\\
+        Markets & Europe, North America\\
+    \end{tabularx}
+
+    \vspace{1.5em}
+
+    I joined a young and dynamic team of electronics and embedded software developers as a validation engineer. I quickly took on the role of team lead as our need to develop a new product became a financial imperative for the company. Growing the team evenly from 5 to 13 engineers over the course of 18 months enabled us, in March 2019, to release a very successful product in both Europe and North America while still being able to work on other innovation projects. ProGlove went on to become an extremely successful company, with its lighthouse product being the product I had the pleasure to bring to completion.
+
+\vspace{0.75em}
+
+\experienceentry{Intel Corporation}{Modem Platforms \& Transcievers}{Pre-silicon Validation \& Verification Engineer}{Aug. 2011 - May 2017}{Munich, Germany}
+
+    \vspace{1.5em}
+
+    \begin{tabularx}{\textwidth}{>{\scshape}l@{\hskip 3.5mm}L}
+        Summary & SW/HW Tools for Pre- \& Post-Silicon Validation (automation).
+        \par Infrastructure \& Methodology (White/Black Box Testing).
+        \par Agile Project \& Software lifecycle management. 
+        \par Stakeholder Management, Scheduling \& Resource Allocation.
+        \par SW Architecture \& Patterns\\
+        Technology Stacks & Python, LabView, Matlab, C/C++, 3G/4G Modem, Bluetooth\\
+        Locations & Europe, North America, India\\
+    \end{tabularx}
+
+    \vspace{1.5em}
+
+    Starting in 2011 as a validation and verification engineer, and eventually completing my Master's thesis within the Analog Design department, I took an interest in refining and streamlining our internal tooling used for pre-silicon and post-silicon validation of both the analog design as well as the embedded firmware and signal processing leading me to work as a embedded software verification engineer. In 2015, I enlisted the help of a scrum master, in order to bring multiple software and hardware engineering teams together to solve a unique problem in the analog semiconductor world: how to build a system where emulation and real hardware can be validated using the same test vectors and test cases. The team was scattered across Europe and the United States and were organised in feature teams.
+
+\noindent
+\begin{minipage}[t]{0.60\textwidth}
+    
+    \section{Degrees}
+
+    \educationentry{Master of Science - Microelectronics \& Telecommunications}{École d'Ingénieurs CPE Lyon}{France}
+
+    \educationentry{Master's Thesis - Comparison methodology of PLLs and Oscillators for transceiver designs}{Intel Cordopration}{Germany}
+
+    \educationentry{Bachelor of Science - Electronics \& Telecommunications}{École d'Ingénieurs CPE Lyon}{France}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\textwidth}
+
+    \section{Extracurricular}
+
+    Ultralight Outdoor Equipment Design at \href{https://abcpacks.com}{ABC Packs}
+    \par Hand-tool Woodworking \& Furniture Making
+    \par Long Distance Solo expeditions
+    \par Wedding \& Street Photography
+
+\end{minipage}
+
+\clearpage
+
+\recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
+\date{\today}
+\opening{}
+\closing{}
+\enclosure[Attached]{curriculum vit\ae{}}
+
+\makelettertitle
+
+Dear Sir or Madam,
+
+I would like to express my interest for the position of Hardware Engineering Manager.
+
+Kind regards,\\
+Arthur Van de Wiele
+
+\end{document}
