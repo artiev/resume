@@ -7,6 +7,7 @@
 \usepackage[margin=1.8cm]{geometry}
 \usepackage[sfdefault, light]{roboto}
 \usepackage{graphicx}
+\usepackage{etoolbox}
 \usepackage{wrapfig}
 \usepackage{parskip}
 \usepackage{tabularx}
@@ -36,6 +37,10 @@
   {\S\thesubsection}{2em}
   {\color{color1}}[\vspace{-0.5em}]
 
+\titleformat{\subsubsection}{\fontsize{1em}{1em}\scshape}
+  {\S\thesubsection}{2em}
+  {\color{color1}}[\vspace{-0.5em}]
+
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
@@ -51,19 +56,31 @@
 }
 
 \newcommand*{\makecareersubsection}[5]{
+  \vspace{0.75em}
   \subsection{#1 {\color{color2}$\cdot$ #2}}
-  \addvspace{-0.5em}
-  {\color{color2}
-  \begin{tabularx}{\textwidth}{LR}
-    {\itshape #3} & {\itshape #4, #5}
-  \end{tabularx}}
-  \par\addvspace{1em}
+  \addvspace{-0.2em}
+  {
+    \color{color2}
+    \begin{tabularx}{\textwidth}{LR}
+      {\itshape #3} & {\itshape #4, #5}
+    \end{tabularx}\par
+  }
+  \addvspace{1.25em}
   }
 
-\newcommand*{\makeeducationparagraph}[3]{
-  {#2, #3}\\
-  {\itshape #1}
-  \par\addvspace{1em}
+\newcommand*{\makeeducationparagraph}[5]{
+  \subsubsection{#1 {\color{color2}$\cdot$ #2}}
+  \addvspace{-0.5em}
+  {
+    \begin{tabularx}{\textwidth}{LR}
+      {\itshape #3} & {\itshape #4, #5}
+    \end{tabularx}\par
+    }
+  }
+
+\newcommand*{\makehobbyparagraph}[3]{
+  \subsubsection{#1 \ifstrempty{#2}{}{\color{color2}$\cdot$ #2}}
+  {\small#3}
   }
 
 % Settings
@@ -107,8 +124,8 @@
 \section{Strengths}
 
   \begin{tabularx}{\textwidth}{>{\scshape}l@{\hskip 3.5mm}L}
-    Leadership & Mentoring, Recruiting, Budgeting, Performance Evaluation, Personal Development, Resource Allocation\\
-    Product Management & Vision, Design, Stakeholder Management, Forecasting, Market Study, Competition Analysis, Project Management, Risk Analysis, Roadmapping, Requirement Engineering, Agile, Scrum\\
+    Leadership & Mentoring, Recruiting, Budgeting, Performance Evaluation, Personal Development, Resource Allocation, Agile, Scrum\\
+    Product Management & Vision, Design, Stakeholder Management, Forecasting, Market Study, Competition Analysis, Project Management, Risk Analysis, Roadmapping, Requirement Engineering\\
     Industrial IoT Design & Mechanics, Electronics, Firmware, QA, DFM, Supplier Management\\
     Backend Interfaces & AWS IoT Core, FleetHub, MQTT, Cloudwatch,  Lambdas\\
     Connectivity & 4G, 5G, Bluetooth, Bluetooth LE, LoRa\\
@@ -117,10 +134,12 @@
 
 \section{Career}
 
-\makecareersubsection{Konux}{Railway Monitoring \& Predictive Maintenance}
-  {Hardware Engineering Project \& Team Lead}
-  {Aug. 2019 - Present}
-  {Munich, Germany}
+  \vspace{-0.5em}
+
+  \makecareersubsection{Konux}{Railway Monitoring \& Predictive Maintenance}
+    {Hardware Engineering Project \& Team Lead}
+    {Aug. 2019 - Present}
+    {Munich, Germany}
 
   \begin{tabularx}{\textwidth}{>{\scshape}l@{\hskip 3.5mm}L}
     Summary & Hiring \& Leading an Agile team of 11 professional engineers (primarily Senior Engineers).
@@ -137,8 +156,6 @@
   \clearpage
 
   I have the pleasure of leading an agile team of eleven exceptional electronics, mechanics, embedded software and QA engineers, as well as full-stack and backend developers. Together, we built a strong and efficient cross-functional product engineering team and took ownership of the entire lifecycle of our hardware portfolio and the backend interfaces they rely on. I provide the team with a hardware and software vision and roadmap (1-2 years ahead) as well as extensive product backlogs. Then, I accompany them through concept, design, prototyping, execution and validation until the final deliveries to our manufacturing partners. At the company level, I represent our hardware engineering efforts and ensure alignments with our Product, Sales, Customer Success, as well as Operations teams. I am thrilled to be able to mentor each individual contributor, both on technical aspects and personal growth.
-
-\vspace{0.75em}
 
 \makecareersubsection{Proglove}{Industrial wearables}
   {Hardware Engineering Project \& Team Lead}
@@ -162,15 +179,12 @@
 
   Joining a young and dynamic team of electronics and embedded software developers as a validation engineer, I quickly took on the role of team lead as our need to develop a new product became a financial imperative for the company. Growing the team evenly from 5 to 13 engineers over the course of 18 months enabled us, in March 2019, to release our most successful product in both Europe and North America while still being able to work on other innovation projects. ProGlove went on to become an extremely profitable company, with its lighthouse product being the device and technology I had the pleasure to pioneer.
 
-\vspace{0.75em}
 
 \makecareersubsection{Intel Corporation}{Modem Platforms \& Transcievers}
   {Pre-silicon Validation \& Verification Engineer}
   {Aug. 2011 - May 2017}
   {Munich, Germany}
 
-
-  \vspace{1.5em}
 
   \begin{tabularx}{\textwidth}{>{\scshape}l@{\hskip 3.5mm}L}
     Summary & SW/HW Test Automation for Pre- \& Post-Silicon Validation (automation).
@@ -189,25 +203,36 @@
     
 \section{Degrees}
 
-  \makeeducationparagraph{Master of Science - Microelectronics \& Telecommunications}
+  \makeeducationparagraph{Master of Science}{Microelectronics \& Telecommunications}
     {École d'Ingénieurs CPE Lyon}
-    {France}
+    {2010 - 2013}{France}
 
-    \makeeducationparagraph{Master's Thesis - Comparison methodology of PLLs and Oscillators for transceiver designs}
-    {Intel Cordopration}
-    {Germany}
+  \makeeducationparagraph{Master's Thesis}{Comparison methodology of PLLs and Oscillators for transceiver designs}
+    {Intel Corporation}
+    {2013}{Germany}
 
-    \makeeducationparagraph{Bachelor of Science - Electronics \& Telecommunications}
+  \makeeducationparagraph{Bachelor of Science}{Electronics \& Telecommunications}
     {École d'Ingénieurs CPE Lyon}
-    {France}
+    {2007 - 2010}{France}
 
 
 \section{Extracurricular}
 
-  Ultralight Outdoor Equipment Design at \href{https://abcpacks.com}{ABC Packs}
-  \par Hand-tool Woodworking \& Furniture Making
-  \par Long Distance Hiking \& Solo expeditions
-  \par Wedding \& Street Photography
+  \makehobbyparagraph{Ultralight Outdoor Equipment Design \& Manufacturing}
+  {\href{https://abcpacks.com}{ABC Packs}}
+  {For the last 6 years, I have regularly designed various types of backpacks and rucksacks with the goal of massively reducing the weight and volume of outdoor equipment one can carry on treks, expeditions, ski touring, etc. I take orders, design unique pieces of equipment sometimes with the customer, then manufacture, ship and bill my creations. To that end, I research and use high-performance materials and fabrics, and always push the limits of what I can execute.}
+  
+  \makehobbyparagraph{Hand-tool Woodworking \& Furniture Making}
+  {}
+  {I find wood to be a fascinating material to shape and build with. The steep learning curve requires a lot of patience and repetition to build muscle memory. After about 4 years of practice, I am only now starting to feel comfortable designing more complex and ambitious pieces of furniture.}
+
+  \makehobbyparagraph{Long Distance Hiking \& Solo expeditions}
+  {}
+  {I have trekked for weeks at a time in the Himalayas and in Swedish Lapland, hiked all around the European Alps from France to Romania, walked the Great Glen Way in 4 days, and hiked part of the Adler Weg which I still need to complete.}
+
+  \makehobbyparagraph{Outdoor \& Street Photography}
+  {}
+  {I started my journey into photography about 15 years ago, and shot both film and digital cameras during this time. I simply enjoy the process of creating a still image of a slice of life.}
 
 \clearpage
 
