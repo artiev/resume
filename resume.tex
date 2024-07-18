@@ -1,91 +1,43 @@
 \documentclass[10pt,a4paper]{moderncv}
 \moderncvtheme{banking}
 \moderncvcolor{blue}
+\moderncvstyle[]{banking}
 
 \usepackage[T1]{fontenc}
 \usepackage{inputenc}
 \usepackage[margin=1.8cm]{geometry}
 \usepackage[sfdefault, light]{roboto}
-\usepackage{graphicx}
-\usepackage{etoolbox}
-\usepackage{wrapfig}
-\usepackage{parskip}
-\usepackage{tabularx}
-\usepackage{titlesec}
-\usepackage{xpatch}
-\usepackage{lastpage}
 
-% Some cosmetic changes and section formatting
+% Customizations
 
+\input{moderncvcustom}
 \renewcommand{\baselinestretch}{1.25}
-
-\titleformat{\section}{\fontsize{1.5em}{2em}\scshape\mdseries}
-  {\thesection}{1em}
-  {\color{color1}}[\color{color1}\hrule\vspace{0.2em}]
-
-\titleformat{\subsection}{\fontsize{1.2em}{1em}\scshape}
-  {\S\thesubsection}{2em}
-  {\color{color1}}[\vspace{-0.5em}]
-
-\titleformat{\subsubsection}{\fontsize{1em}{1em}\scshape}
-  {\S\thesubsection}{2em}
-  {\color{color1}}[\vspace{-0.5em}]
-
-\newcolumntype{L}{>{\raggedright\arraybackslash}X}
-\newcolumntype{C}{>{\centering\arraybackslash}X}
-\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
-
 \def\arraystretch{1.2}
-\lfoot{\addressfont\itshape\textcolor{gray}{\tiny AVW}}
-\rfoot{\addressfont\itshape\textcolor{gray}{\tiny Page \thepage\ of \pageref{LastPage}}}
-
-% Career Subsection Titles
-
-\newcommand*{\makenameplate}[0]{
-  {\color{color1}\Huge\scshape\mdseries Arthur Van de Wiele}
-  \vspace{0.5em}
-  {\par\color{color2}\Large Industrial HW / IoT Engineering \& Project Lead}
-}
-
-\newcommand*{\makecareersubsection}[5]{
-  \vspace{0.75em}
-  \subsection{#1 {\color{color2}$\cdot$ #2}}
-  \addvspace{-0.2em}
-  {
-    \color{color2}
-    \begin{tabularx}{\textwidth}{LR}
-      {\itshape #3} & {\itshape #4, #5}
-    \end{tabularx}\par
-  }
-  \addvspace{1.25em}
-  }
-
-\newcommand*{\makeeducationparagraph}[5]{
-  \subsubsection{#1 {\color{color2}$\cdot$ #2}}
-  \addvspace{-0.5em}
-  {
-    \begin{tabularx}{\textwidth}{LR}
-      {\itshape #3} & {\itshape #4, #5}
-    \end{tabularx}\par
-    }
-  }
-
-\newcommand*{\makehobbyparagraph}[3]{
-  \subsubsection{#1 \ifstrempty{#2}{}{\color{color2}$\cdot$ #2}}
-  \vspace{1em}
-  \hfill
-  \begin{minipage}{0.98\textwidth}
-    \small #3
-  \end{minipage}
-  }
 
 % Settings
 
 \firstname{Arthur}
-\familyname{Van de Wiele}
+\lastname{Van de Wiele}
+\title{Industrial HW / IoT Engineering \& Project Lead}
 \address{***REMOVED***}{***REMOVED***}{***REMOVED***}
-\title{Industrial IoT Engineering \& Project Lead}
-\photo[75pt][0.5em]{me}
+\intlphone{***REMOVED***}{***REMOVED***} % See Customs
+\email{***REMOVED***}
+\linkedin{https://www.linkedin.com/in/arthur-van-de-wiele/} % See Customs
+\github{https://github.com/artiev} % See Customs
+
+
+% Some better tables with custom alignments
+
+\usepackage{tabularx}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+% Footer with initials and page count
+
+\usepackage{lastpage}
+\lfoot{\addressfont\itshape\textcolor{gray}{\tiny AVW}}
+\rfoot{\addressfont\itshape\textcolor{gray}{\tiny Page \thepage\ of \pageref{LastPage}}}
 
 % --------
 % Document
@@ -93,23 +45,13 @@
 
 \begin{document}
 
-\begin{minipage}{0.70\textwidth}
-  \makenameplate
-\end{minipage}
-\begin{minipage}{0.30\textwidth}
-  \emailsymbol\hspace{1em} \emaillink{***REMOVED***}\\
-  \mobilephonesymbol\hspace{1em }\tellink[***REMOVED***]{***REMOVED***}\\
-  \faLinkedin\hspace{1em} \href{https://www.linkedin.com/in/arthur-van-de-wiele/}{Linkedin}\\
-  \faGithubSquare\hspace{1em} \href{https://www.linkedin.com/in/arthur-van-de-wiele/}{GitHub}
-\end{minipage}
-
-\vspace{1em}
-{\par\color{color2}***REMOVED***}
+\makecvhead
 
 \vspace{2em}
 
-\section{About}
+\cvsection{About}
 
+\vspace{0.5em}
 \begin{minipage}{0.80\textwidth}
   Dedicated and hands-on engineering \& project manager, with 13 years of experience in hardware and IIot product development taking early concepts to manufacturing at scale, leading firmware, QA, electronics, mechanical design and backend engineering. Building cross-functional agile teams (up to 13 engineers) with a strong focus on self-reliance, dependability and quality. I believe building an audacious engineering team and product backlog is the key to bringing research, design as well as development projects to a fulfilling completion. The values I instil in my teams are thriving for open communication, building trust, honouring our commitments, understanding the what and why before defining the how to ensure we are doing the right things the right way, and embracing challenges for what they can teach us.
 \end{minipage}
@@ -118,7 +60,7 @@
   \includegraphics[width=\linewidth]{portrait_round.jpg}\vspace{1.1em}
 \end{minipage}
 
-\section{Strengths}
+\cvsection{Strengths}
 
   \begin{tabularx}{\textwidth}{>{\scshape}l@{\hskip 3.5mm}L}
     Leadership & Mentoring, Recruiting, Budgeting, Performance Evaluation, Personal Development, Resource Allocation, Agile, Scrum\\
@@ -129,14 +71,12 @@
     Languages & French (Native), English (Business), German (Casual), Spanish (Basic)
   \end{tabularx}
 
-\section{Career}
+\cvsection{Career}
 
-  \vspace{-0.5em}
-
-  \makecareersubsection{Konux}{Railway Monitoring \& Predictive Maintenance}
+  \makecareersubsection[0em]{Konux}{Railway Monitoring \& Predictive Maintenance}
     {Hardware Engineering Project \& Team Lead}
     {Aug. 2019 - Present}
-    {Munich, Germany}
+    {Munich, Germany}{https://konux.com}
 
   \begin{tabularx}{\textwidth}{>{\scshape}l@{\hskip 3.5mm}L}
     Summary & Hiring \& Leading an Agile team of 11 professional engineers (primarily Senior Engineers).
@@ -157,9 +97,9 @@
   
 
 \makecareersubsection{Proglove}{Industrial wearables}
-  {Hardware Engineering Project \& Team Lead}
+  {Hardware Engineering Team Lead}
   {Oct. 2017 - Jul. 2019}
-  {Munich, Germany}
+  {Munich, Germany}{https://proglove.com}
 
   \begin{tabularx}{\textwidth}{>{\scshape}l@{\hskip 3.5mm}L}
     Summary & Hiring \& Leading a Scrum team of 13 professional engineers (all levels of seniority).
@@ -186,8 +126,7 @@
 \makecareersubsection{Intel Corporation}{Modem Platforms \& Transcievers}
   {Pre-silicon Validation \& Verification Engineer}
   {Aug. 2011 - May 2017}
-  {Munich, Germany}
-
+  {Munich, Germany}{https://intel.com}
 
   \begin{tabularx}{\textwidth}{>{\scshape}l@{\hskip 3.5mm}L}
     Summary & SW/HW Test Automation for Pre- \& Post-Silicon Validation (automation).
@@ -207,7 +146,7 @@
 
 \clearpage
     
-\section{Degrees}
+\cvsection{Degrees}
 
   \makeeducationparagraph{Master of Science}{Microelectronics \& Telecommunications}
     {École d'Ingénieurs CPE Lyon}
@@ -222,24 +161,32 @@
     {2007 - 2010}{France}
 
 
-\section{Extracurricular}
+\cvsection{Extracurricular}
 
-  \makehobbyparagraph{Ultralight Outdoor Equipment Design \& Manufacturing}
+  \makehobbyparagraph[0em]{Ultralight Outdoor Equipment Design \& Manufacturing}
   {\href{https://abcpacks.com}{ABC Packs}}
   {For the last 7 years, I have regularly designed various types of backpacks and rucksacks with the goal of massively reducing the weight and volume of outdoor equipment one can carry on treks, expeditions, ski touring, etc. I take orders, design unique pieces of equipment - sometimes with the customer - then manufacture, ship and bill my creations.}
   
   \makehobbyparagraph{Hand-tool Woodworking \& Furniture Making}
   {}
-  {I find wood to be a fascinating material to shape and build with. The steep learning curve requires a lot of patience and repetition to build muscle memory. After about 4 years of practice, I am only now starting to feel comfortable designing more complex and ambitious pieces of furniture. Yet, I still have a long road ahead of me.}
+  {
+    I find wood to be a fascinating material to shape and build with. The steep learning curve requires a lot of patience and repetition to build muscle memory. After about 4 years of practice, I am only now starting to feel comfortable designing more complex and ambitious pieces of furniture. Yet, I still have a long road ahead of me.
+  }
 
   \makehobbyparagraph{Long Distance Hiking \& Solo expeditions}
   {}
-  {I can trek solo for weeks at a time in the Himalayas and in Swedish Lapland, and enjoy the European Alps from France to Romania for any length of time, or I can walk the Great Glen Way in 4 days although I might need a few days to recover afterwards.}
+  {
+    I can trek solo for weeks at a time in the Himalayas and in Swedish Lapland, and enjoy the European Alps from France to Romania for any length of time, or I can walk the Great Glen Way in 4 days although I might need a few days to recover afterwards.
+  }
 
   \makehobbyparagraph{Outdoor \& Street Photography}
   {}
-  {I started my journey into photography about 15 years ago, and shot both film and digital cameras during this time. I simply enjoy the process of creating a still image of a slice of life.}
+  {
+    I started my journey into photography about 15 years ago, and shot both film and digital cameras during this time. I simply enjoy the process of creating a still image of a slice of life.
+  }
 
 \clearpage
+
+\include{cover}
 
 \end{document}

@@ -1,0 +1,194 @@
+\makeatletter
+
+\newcommand\intlphone[2]{
+  \def\@intlphonenumber{#2}
+  \def\@intlphonelink{#1}
+}
+\newcommand\github[1]{\def\@github{#1}}
+\newcommand\linkedin[1]{\def\@linkedin{#1}}
+\newcommand\coversubject[1]{\def\@coversubject{#1}}
+
+\definecolor{darkchocolate}{HTML}{323031}
+\definecolor{subtlegrey}{HTML}{666265}
+\definecolor{lightgrey}{HTML}{999891}
+\definecolor{deepseablue}{HTML}{084C61}
+\definecolor{algeabloom}{HTML}{177E89}
+\definecolor{washedoutyellow}{HTML}{FFC857}
+\definecolor{mediumyellow}{HTML}{FFB722}
+\definecolor{skyblue}{HTML}{00A9f1}
+\definecolor{mediumblue}{HTML}{0086C0}
+\definecolor{lightblue}{HTML}{1198EE}
+
+\renewcommand{\linkedinsocialsymbol}{\faLinkedin}
+
+\renewcommand*{\namefont}{\Huge\scshape\mdseries}
+\renewcommand*{\titlefont}{\Large}
+\renewcommand*{\addressfont}{\normalsize\mdseries\upshape}
+\renewcommand*{\sectionfont}{\Large\scshape\mdseries}
+
+\renewcommand*{\namestyle}[1]{{\namefont\color{lightblue} #1}}
+\renewcommand*{\titlestyle}[1]{{\titlefont\color{darkchocolate}\Large #1}}
+\renewcommand*{\addressstyle}[1]{{\addressfont\color{subtlegrey} #1}}
+\renewcommand*{\sectionstyle}[1]{{\sectionfont\color{lightblue} #1}\vspace{0.5em}}
+\renewcommand*{\subsectionfont}{\fontsize{1.1em}{2em}\scshape\mdseries}
+\renewcommand*{\subsectionstyle}[1]{{\subsectionfont\color{mediumyellow} #1}}
+
+\newcommand{\cventrysubsectionstyleone}[1]{{\subsectionfont\color{mediumyellow} #1}}
+\newcommand{\cventrysubsectionstyletwo}[1]{{\fontshape{thin}\selectfont\subsectionfont\color{subtlegrey} #1}}
+\newcommand{\cvhobbysubsectionstyleone}[1]{{\subsectionfont\color{subtlegrey} #1}}
+\newcommand{\cvhobbysubsectionstyletwo}[1]{{\subsectionfont\color{subtlegrey} #1}}
+\newcommand{\infostyle}{\color{darkchocolate}}
+
+% Custom Section
+
+\newcommand{\cvsection}[1]{
+  \phantomsection{}
+  \addcontentsline{toc}{section}{#1} 
+  \vspace{2em}
+  \par
+  \sectionstyle{#1}%
+  \par\vspace{-1.2em}\noindent\sectionstyle{\hrulefill}
+  \par
+}
+
+% Custom Subsections
+
+\newcommand{\cventrysubsection}[3][1.5em]{
+  \phantomsection{}
+  \addcontentsline{toc}{subsection}{#2}
+  \vspace{#1}\par
+  \cventrysubsectionstyleone{#2}\ifstrempty{#3}{}{~$\cdot$~\cventrysubsectionstyletwo{#3}}
+  \par\vspace{0em}
+}
+
+\newcommand{\cveducationsubsection}[3][1.5em]{
+  \phantomsection{}
+  \addcontentsline{toc}{subsection}{#2}
+  \vspace{#1}\par
+  \cventrysubsectionstyleone{#2}\ifstrempty{#3}{}{~$\cdot$~\cventrysubsectionstyletwo{#3}}
+  \par\vspace{0em}
+}
+
+\newcommand{\cvhobbysubsection}[3][1.5em]{
+  \phantomsection{}
+  \addcontentsline{toc}{subsection}{#2}
+  \vspace{#1}\par
+  \cvhobbysubsectionstyleone{#2}\ifstrempty{#3}{}{~$\cdot$~\cvhobbysubsectionstyletwo{#3}}
+  \par\vspace{0em}
+}
+
+\newcommand*{\makecareersubsection}[7][1.5em]{
+  \ifstrempty{#7}{
+    \cventrysubsection[#1]{#2}{#4}
+  }{
+    \cventrysubsection[#1]{\href{#7}{#2}}{#4}
+  }
+  {
+    \color{lightgrey}
+    \begin{tabularx}{\textwidth}{LR}
+      {\itshape #3} & {\itshape #5, #6}
+    \end{tabularx}
+  }
+  \par
+}
+
+\newcommand*{\makeeducationparagraph}[5]{
+  \cveducationsubsection[0em]{#1}{#2}
+  {
+    \color{subtlegrey}
+    \begin{tabularx}{\textwidth}{LR}
+      {\itshape #3} & {\itshape #4, #5}
+    \end{tabularx}
+    }
+}
+
+\newcommand*{\makehobbyparagraph}[4][1.5em]{
+  \cvhobbysubsection[#1]{#2}{#3}
+  \addvspace{1em}
+  \hfill
+  \begin{minipage}{0.98\textwidth}
+    \small #4
+  \end{minipage}
+  \par
+}
+
+% moderncv overwrites
+
+\renewcommand*{\makehead}{
+  \begin{minipage}{0.60\textwidth}
+    \vspace{0em}
+    \namestyle{\@firstname~\@lastname}
+    \\[0.5em]
+    \titlestyle{\@title}
+    \\[1em]
+    \addressstyle{\@addressstreet, \@addresscity, \@addresscountry}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}{0.30\textwidth}
+    \vspace{-3em}
+    \infostyle
+    \ifthenelse{\isundefined{\@email}}{}{%
+      \emailsymbol\hspace{0.75em}\emaillink{\@email}%
+    }\\[0.2em]
+    \ifthenelse{\isundefined{\@intlphonenumber}}{
+      \ifthenelse{\isundefined{\@phone}}{}{%
+        \mobilephonesymbol\hspace{1em}\tellink[\@phone]{\@phone}%
+      }
+    }{
+      \mobilephonesymbol\hspace{1em}\tellink[\@intlphonenumber]{\@intlphonelink}%
+    }\\[0.2em]
+    \ifthenelse{\isundefined{\@linkedin}}{}{%
+      \linkedinsocialsymbol\hspace{1em}\href{{\@linkedin}}{LinkedIn}%
+    }\\[0.2em]
+    \ifthenelse{\isundefined{\@github}}{}{%
+      \githubsocialsymbol\hspace{0.75em}\href{{\@github}}{GitHub}%
+    }
+    \vfill
+  \end{minipage}%
+}
+
+\renewcommand*{\makeletterhead}{
+  \makehead
+  \vspace{2em}
+  \par
+  \begin{flushright}
+    \@date
+  \end{flushright}
+  \vspace{2em}
+  {
+    \addressfont
+    {\bfseries\upshape\@recipientname}
+    \newline
+    \@recipientaddress
+  }
+  
+  \vspace{2em}
+
+  \textbf{Subject:} \@coversubject
+  \vspace{2em}
+  \par
+  \noindent
+  \raggedright
+  \@opening
+  \newline
+}
+
+\renewcommand*{\makeletterclosing}{
+  \par
+  \ifthenelse{\isundefined{\@signature}}{
+    \vspace{1em}
+    \@closing\\
+    \@firstname~\@lastname
+  }{
+    \@closing
+    \vspace{1em}
+    \@signature
+    \@firstname~\@lastname
+  }
+  
+  \ifthenelse{\isundefined{\@enclosure}}{}{
+    \par\vspace{1em}
+    {\color{color2}\itshape\enclname: \@enclosure}}
+}
+
+\makeatother
