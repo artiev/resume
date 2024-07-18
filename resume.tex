@@ -16,15 +16,11 @@
 
 % Settings
 
-\firstname{Arthur}
-\lastname{Van de Wiele}
-\title{Industrial HW / IoT Engineering \& Project Lead}
-\address{***REMOVED***}{***REMOVED***}{***REMOVED***}
-\intlphone{***REMOVED***}{***REMOVED***} % See Customs
-\email{***REMOVED***}
-\linkedin{https://www.linkedin.com/in/arthur-van-de-wiele/} % See Customs
-\github{https://github.com/artiev} % See Customs
-
+\IfFileExists{information-secrete}{
+  \input{information-secrete}
+}{
+  \input{information-public}
+}
 
 % Some better tables with custom alignments
 
