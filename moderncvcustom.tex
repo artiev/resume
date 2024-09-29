@@ -148,28 +148,27 @@
 }
 
 \renewcommand*{\makeletterhead}{
-  \makehead
+  %\makehead
   \vspace{2em}
-  \par
   \begin{flushright}
-    \@date
+    \par\@firstname~\@lastname
+    \par\addressstyle{\@addressstreet\\\@addresscity\\\@addresscountry}
   \end{flushright}
-  \vspace{2em}
+  \vspace{1em}
+  \begin{flushright}
+    \par\@date
+  \end{flushright}
+  \vspace{1.5em}
   {
     \addressfont
     {\bfseries\upshape\@recipientname}
     \newline
     \@recipientaddress
   }
-  
-  \vspace{2em}
-
-  \textbf{Subject:} \@coversubject
-  \vspace{2em}
-  \par
-  \noindent
-  \raggedright
-  \@opening
+  \vspace{1.5em}
+  \par\noindent\textbf{Subject:} \@coversubject
+  \vspace{1.5em}
+  \par\noindent\@opening
   \newline
 }
 
@@ -177,10 +176,10 @@
   \par
   \ifthenelse{\isundefined{\@signature}}{
     \vspace{1em}
-    \@closing\\
-    \@firstname~\@lastname
+    \par\noindent\@closing
+    \par\noindent\@firstname~\@lastname
   }{
-    \@closing
+    \par\noindent\@closing
     \vspace{1em}
     \@signature
     \@firstname~\@lastname
