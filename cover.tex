@@ -1,3 +1,47 @@
+\documentclass[10pt,a4paper]{moderncv}
+\moderncvtheme{banking}
+\moderncvcolor{blue}
+\moderncvstyle[]{banking}
+
+\usepackage[T1]{fontenc}
+\usepackage{inputenc}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage[sfdefault, light]{roboto}
+
+% Customizations
+
+\input{moderncvcustom}
+\renewcommand{\baselinestretch}{1.25}
+\def\arraystretch{1.2}
+\nopagenumbers 
+
+% Settings
+
+\IfFileExists{information-secrete}{
+  \input{information-secrete}
+}{
+  \input{information-public}
+}
+
+% Some better tables with custom alignments
+
+\usepackage{tabularx}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+% Footer with initials and page count
+
+\usepackage{lastpage}
+\lfoot{\addressfont\itshape\textcolor{gray}{\tiny AVW}}
+\rfoot{\addressfont\itshape\textcolor{gray}{\tiny Page \thepage\ of \pageref{LastPage}}}
+
+% --------
+% Document
+% --------
+
+\begin{document}
+
 \recipient{To whom it may concern}{Company, Inc.\\Munich}
 \date{\today}
 \enclosure[Attachements]{Résumé}
@@ -11,3 +55,6 @@
 I would like to express my interest for a position.
 
 \makeletterclosing
+
+
+\end{document}
