@@ -1,5 +1,6 @@
 \makeatletter
 
+\newcommand\subtitle[1]{\def\@subtitle{#1}}
 \newcommand\intlphone[2]{
   \def\@intlphonenumber{#2}
   \def\@intlphonelink{#1}
@@ -22,12 +23,14 @@
 \renewcommand{\linkedinsocialsymbol}{\faLinkedin}
 
 \renewcommand*{\namefont}{\Huge\scshape\mdseries}
-\renewcommand*{\titlefont}{\Large}
+\renewcommand*{\titlefont}{\large}
+\newcommand*{\subtitlefont}{\normalsize}
 \renewcommand*{\addressfont}{\normalsize\mdseries\upshape}
-\renewcommand*{\sectionfont}{\Large\scshape\mdseries}
+\renewcommand*{\sectionfont}{\large\scshape\mdseries}
 
 \renewcommand*{\namestyle}[1]{{\namefont\color{mediumblue} #1}}
-\renewcommand*{\titlestyle}[1]{{\titlefont\color{darkchocolate}\Large #1}}
+\renewcommand*{\titlestyle}[1]{{\titlefont\color{darkchocolate} #1}}
+\newcommand*{\subtitlestyle}[1]{{\subtitlefont\color{darkchocolate} #1}}
 \renewcommand*{\addressstyle}[1]{{\addressfont\color{subtlegrey} #1}}
 \renewcommand*{\sectionstyle}[1]{{\sectionfont\color{mediumblue} #1}\vspace{0.5em}}
 \renewcommand*{\subsectionfont}{\fontsize{1.1em}{2em}\scshape\mdseries}
@@ -96,7 +99,7 @@
   \cveducationsubsection[0em]{#1}{#2}
   {
     \color{subtlegrey}
-    \begin{tabularx}{\textwidth}{LR}
+    \begin{tabularx}{\textwidth}{>{\hsize=1.6\hsize}L>{\hsize=0.4\hsize}R} %>{\hsize=1.6\hsize}X>{\hsize=0.4\hsize}X
       {\itshape #3} & {\itshape #4, #5}
     \end{tabularx}
     }
@@ -115,36 +118,44 @@
 % moderncv overwrites
 
 \renewcommand*{\makehead}{
+  \noindent
   \begin{minipage}{0.60\textwidth}
     \vspace{0em}
     \namestyle{\@firstname~\@lastname}
-    \\[0.5em]
+    \\[0.75em]
     \titlestyle{\@title}
-    \\[1em]
-    \addressstyle{\@addressstreet, \@addresscity, \@addresscountry}
+    \\[0.25em]
+    \subtitlestyle{\@subtitle}    
+    \vspace{2em}
+    \vfill
   \end{minipage}%
   \hfill
   \begin{minipage}{0.30\textwidth}
-    \vspace{-3em}
+    \vspace{-1em}
+    \raggedright\addressstyle{\@addressstreet\\ \@addresscity, \@addresscountry}
+    \\[0.5em]
     \infostyle
     \ifthenelse{\isundefined{\@email}}{}{%
       \emailsymbol\hspace{0.75em}\emaillink{\@email}%
-    }\\[0.2em]
+      \\[0.2em]
+    }
     \ifthenelse{\isundefined{\@intlphonenumber}}{
       \ifthenelse{\isundefined{\@phone}}{}{%
         \mobilephonesymbol\hspace{1em}\tellink[\@phone]{\@phone}%
       }
     }{
       \mobilephonesymbol\hspace{1em}\tellink[\@intlphonenumber]{\@intlphonelink}%
-    }\\[0.2em]
+      \\[0.2em]
+    }
     \ifthenelse{\isundefined{\@linkedin}}{}{%
       \linkedinsocialsymbol\hspace{1em}\href{{\@linkedin}}{LinkedIn}%
-    }\\[0.2em]
+      \\[0.2em]
+    }
     \ifthenelse{\isundefined{\@github}}{}{%
       \githubsocialsymbol\hspace{0.75em}\href{{\@github}}{GitHub}%
     }
-    \vfill
   \end{minipage}%
+  \vspace{-2em}
 }
 
 \renewcommand*{\makeletterhead}{
@@ -163,7 +174,7 @@
   }
   
   \vspace{2em}
-
+  \noindent
   \textbf{Subject:} \@coversubject
   \vspace{2em}
   \par
