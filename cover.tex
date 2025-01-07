@@ -8,10 +8,12 @@
 \usepackage[margin=1.8cm]{geometry}
 \usepackage[sfdefault, light]{roboto}
 
+\usepackage{ragged2e}
+
 % Customizations
 
 \input{moderncvcustom}
-\renewcommand{\baselinestretch}{1.25}
+\renewcommand{\baselinestretch}{1.45}
 \def\arraystretch{1.2}
 \nopagenumbers 
 
@@ -36,6 +38,12 @@
 \lfoot{\addressfont\itshape\textcolor{gray}{\tiny AVW}}
 \rfoot{\addressfont\itshape\textcolor{gray}{\tiny Page \thepage\ of \pageref{LastPage}}}
 
+% Remove Linkedin and Github links
+\makeatletter
+\let\@linkedin\undefined
+\let\@github\undefined
+\makeatother
+
 % --------
 % Document
 % --------
@@ -52,9 +60,21 @@
 
 \makeletterhead
 
-I would like to express my interest for a position.
+\justifying
+
+I would like to express my strong interest in the position of...
+\\[1em]
+\noindent I have spent the last 7 years working as a Senior Project lead and Team lead for interdisciplinary engineering teams designing and building various IoT/hardware solutions for industrial applications. I would be thrilled to pursue my passion for embedded systems at ams. I also have past experience in the semiconductor industry following 6 years working at Intel Mobile Communications in the validation and verification domain. One of the main reasons driving me to search for a new opportunity at this time is a silverlining across my entire career: I always value expanding my technical knowledge and field of application, as well as finding an environment where peers exchange their knowledge and expertise in an effort to elevate both contributors and leaders of an organisation.
+\\[1em]
+\noindent I am familiar with the intricate requirements and needs for transparency that can emerge from complex cross-functional and high-stakes projects. I am versed in product design and driving a roadmapping process as well as portfolio, risk, supplier and customer management, and I do my best work when I am able to discuss and distil these high-level concepts directly with the engineering team to agree on a detailed breakdown and execution plans. I emphasize well defined milestones and progress indicators, all the while maintaining a direct line of communication with all stakeholders.
+\\[1em]
+\noindent Ideally, I would like to find a role that remains close to the technology as much as to the individual contributors. I think a project plan is only a small fraction of the deliverables a project manager can provide an organisation and an engineering team with, especially in the embedded systems domains. I find that very close collaboration with the engineering team(s) is paramount to accurate and realistic projections and estimates, while consistent communication with stakeholders allows for more agility and flexibility.
+\\[1em]
+\noindent I would be delighted to discuss this further should you find my expertise relevant and thank you for considering my application. I remain at your disposal for any further information.
 
 \makeletterclosing
 
-
 \end{document}
+% --------
+% Document
+% --------
