@@ -23,14 +23,14 @@
 \renewcommand{\linkedinsocialsymbol}{\faLinkedin}
 
 \renewcommand*{\namefont}{\Huge\scshape\mdseries}
-\renewcommand*{\titlefont}{\large}
-\newcommand*{\subtitlefont}{\normalsize}
+\renewcommand*{\titlefont}{\normalsize\mdseries}
+\newcommand*{\subtitlefont}{\normalsize\mdseries}
 \renewcommand*{\addressfont}{\normalsize\mdseries\upshape}
 \renewcommand*{\sectionfont}{\large\scshape\mdseries}
 
 \renewcommand*{\namestyle}[1]{{\namefont\color{mediumblue} #1}}
 \renewcommand*{\titlestyle}[1]{{\titlefont\color{darkchocolate} #1}}
-\newcommand*{\subtitlestyle}[1]{{\subtitlefont\color{darkchocolate} #1}}
+\newcommand*{\subtitlestyle}[1]{{\subtitlefont\color{lightgrey} #1}}
 \renewcommand*{\addressstyle}[1]{{\addressfont\color{subtlegrey} #1}}
 \renewcommand*{\sectionstyle}[1]{{\sectionfont\color{mediumblue} #1}\vspace{0.5em}}
 \renewcommand*{\subsectionfont}{\fontsize{1.1em}{2em}\scshape\mdseries}
@@ -119,7 +119,7 @@
 
 \renewcommand*{\makehead}{
   \noindent
-  \begin{minipage}{0.60\textwidth}
+  \begin{minipage}{0.65\textwidth}
     \vspace{0em}
     \namestyle{\@firstname~\@lastname}
     \\[0.75em]
